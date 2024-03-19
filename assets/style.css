@@ -5,7 +5,10 @@ h2 {
 }
 
 #listeTaches,
-#formulaire {
+#formulaire,
+#connexion, 
+#inscription,
+#profil{
   margin: auto;
   max-width: 85%;
 }
@@ -14,35 +17,4 @@ h2 {
 .form-select,
 #inputDate {
   cursor: pointer;
-}
-
-.list-group-item.active {
-  background-color: #f79bb2;
-  border-color: #f79bb2;
-}
-
-.list-group-item:hover {
-  background-color: #fff3f5;
-}
-
-.form-control:focus,
-.form-select:focus {
-  border-color: #ff69b4;
-  box-shadow: 0 0 0 0.25rem rgba(255, 105, 180, 0.25);
-}
-
-.col-12 {
-  display: flex;
-  justify-content: end;
-}
-
-.btn-primary {
-  --bs-btn-bg: #f79bb2;
-  --bs-btn-border-color: #f79bb2;
-  --bs-btn-hover-bg: #e4597b;
-  --bs-btn-hover-border-color: #f79bb2;
-  --bs-btn-active-bg: #f79bb2;
-  --bs-btn-active-border-color: #f79bb2;
-  --bs-btn-disabled-bg: #f79bb2;
-  --bs-btn-disabled-border-color: #f79bb2;
 }

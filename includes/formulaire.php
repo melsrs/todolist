@@ -16,9 +16,17 @@
         <div class="col-md-4">
             <label for="inputPriorite" class="form-label">Priorité</label>
             <select id="inputPriorite" class="form-select">
-                <option>Élevée</option>
-                <option>Moyenne</option>
-                <option>Faible</option>
+                <option>Normal</option>
+                <option>Important</option>
+                <option>Urgent</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label for="inputPriorite" class="form-label">Catégories</label>
+            <select id="inputPriorite" class="form-select">
+                <option>Travail</option>
+                <option>Personnel</option>
+                <option>Sport</option>
             </select>
         </div>
         <div class="col-12">
@@ -26,3 +34,5 @@
         </div>
     </form>
 </div>
+
+</main>

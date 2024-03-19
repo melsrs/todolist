@@ -1,0 +1,18 @@
+.list-group-item.active {
+  background-color: #f79bb2;
+  border-color: #f79bb2;
+}
+
+.list-group-item:hover {
+  background-color: #fff3f5;
+}
+
+.rounded-pill{
+  margin: 0px 5px 0px 0px;
+}
+
+.btn-outline-primary {
+  position: absolute;
+  right: 16px;
+  padding: 0px 5px 0px 5px !important;
+}
