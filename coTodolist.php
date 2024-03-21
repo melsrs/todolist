@@ -10,16 +10,18 @@
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="assets/liste.css">
     <link rel="stylesheet" href="assets/formulaire.css">
+    <script src="./assets/script.js" defer></script>
+
 </head>
 
 <body>
 
     <?php
 
-    include './includes/navBarreCo.php';
-    include './includes/liste.php';
-    include './includes/formulaire.php';
-    include './includes/footer.php';
+    include './Views/navBarreCo.php';
+    include './Views/liste.php';
+    include './Views/formulaire.php';
+    include './Views/footer.php';
 
     ?>
 

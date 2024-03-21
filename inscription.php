@@ -19,7 +19,7 @@
 
     <?php
 
-    include './includes/navBarre.php';
+    include './Views/navBarre.php';
 
 
     ?>

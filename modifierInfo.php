@@ -18,7 +18,7 @@
 
     <?php
 
-    include './includes/navBarreCo.php';
+    include './Views/navBarreCo.php';
 
     ?>
 

@@ -17,11 +17,10 @@
 
     <?php
 
-    include './includes/navBarre.php';
-    include './includes/connexion.php';
+    include './Views/navBarre.php';
+    include './Views/connexion.php';
+    include './Views/footer.php';
 
     ?>
 
 </html>
-
-
