@@ -1,10 +1,10 @@
 <?php
-namespace Repositories\CategoryManager;
+namespace Repositories\TaskManager;
 
-use Models\Category;
+use Models\Task;
 use Models\DbConnexion\DbConnexion;
 
-class CategoryManager
+class TaskManager
 {
     private $pdo;
 
@@ -13,26 +13,26 @@ class CategoryManager
         $this->pdo = $dbConnexion->getPDO();
     }
 
-    public function allCategories()
+    public function allTasks()
     {
-        $categories = [];
+        $tasks = [];
 
         try {
-            $stmt = $this->pdo->query("SELECT * FROM category");
+            $stmt = $this->pdo->query("SELECT * FROM task");
             while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
-                $categories[] = new Category($row);
+                $tasks[] = new Task($row);
             }
         } catch (\PDOException $e) {
-            return $categories;
+            return $tasks;
         }
-        return $categories;
+        return $tasks;
     }
 
-    public function insertCategory(Category $objet)
+    public function insertTasks(Task $objet)
     {
-        $name = $objet->getNameCategory();
+        $name = $objet->getNameTask();
         try {
-            $stmt = $this->pdo->prepare("INSERT INTO category (name) VALUES (?)");
+            $stmt = $this->pdo->prepare("INSERT INTO task (name) VALUES (?)");
             $stmt->execute([$name]);
 
             return $stmt->rowCount() == 1;

@@ -11,7 +11,6 @@ class Task {
     private $ID_User;
     private $ID_Priority;
 
-    
 
     /**
      * Get the value of ID_Task

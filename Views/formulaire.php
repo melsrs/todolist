@@ -22,8 +22,8 @@
             </select>
         </div>
         <div class="col-md-4">
-            <label for="inputPriorite" class="form-label">Catégories</label>
-            <select id="inputPriorite" class="form-select">
+            <label for="inputCategory" class="form-label">Catégories</label>
+            <select id="inputCategory" class="form-select">
                 <option>Travail</option>
                 <option>Personnel</option>
                 <option>Sport</option>

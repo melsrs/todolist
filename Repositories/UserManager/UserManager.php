@@ -1,10 +1,10 @@
 <?php
-namespace Repositories\CategoryManager;
+namespace Repositories\UserManager;
 
-use Models\Category;
+use Models\User;
 use Models\DbConnexion\DbConnexion;
 
-class CategoryManager
+class UserManager
 {
     private $pdo;
 
@@ -13,26 +13,26 @@ class CategoryManager
         $this->pdo = $dbConnexion->getPDO();
     }
 
-    public function allCategories()
+    public function allUsers()
     {
-        $categories = [];
+        $users = [];
 
         try {
-            $stmt = $this->pdo->query("SELECT * FROM category");
+            $stmt = $this->pdo->query("SELECT * FROM user");
             while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
-                $categories[] = new Category($row);
+                $users[] = new User($row);
             }
         } catch (\PDOException $e) {
-            return $categories;
+            return $users;
         }
-        return $categories;
+        return $users;
     }
 
-    public function insertCategory(Category $objet)
+    public function insertUser(User $objet)
     {
-        $name = $objet->getNameCategory();
+        $name = $objet->getNameUser();
         try {
-            $stmt = $this->pdo->prepare("INSERT INTO category (name) VALUES (?)");
+            $stmt = $this->pdo->prepare("INSERT INTO user (name) VALUES (?)");
             $stmt->execute([$name]);
 
             return $stmt->rowCount() == 1;

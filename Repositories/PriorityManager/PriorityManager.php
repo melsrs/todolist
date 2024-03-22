@@ -1,10 +1,10 @@
 <?php
-namespace Repositories\CategoryManager;
+namespace Repositories\PriorityManager;
 
-use Models\Category;
+use Models\Priority;
 use Models\DbConnexion\DbConnexion;
 
-class CategoryManager
+class PriorityManager
 {
     private $pdo;
 
@@ -13,26 +13,26 @@ class CategoryManager
         $this->pdo = $dbConnexion->getPDO();
     }
 
-    public function allCategories()
+    public function allPriorities()
     {
-        $categories = [];
+        $priorities = [];
 
         try {
-            $stmt = $this->pdo->query("SELECT * FROM category");
+            $stmt = $this->pdo->query("SELECT * FROM priority");
             while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
-                $categories[] = new Category($row);
+                $priorities[] = new Priority($row);
             }
         } catch (\PDOException $e) {
-            return $categories;
+            return $priorities;
         }
-        return $categories;
+        return $priorities;
     }
 
-    public function insertCategory(Category $objet)
+    public function insertPriority(Priority $objet)
     {
-        $name = $objet->getNameCategory();
+        $name = $objet->getNamePriority();
         try {
-            $stmt = $this->pdo->prepare("INSERT INTO category (name) VALUES (?)");
+            $stmt = $this->pdo->prepare("INSERT INTO priority (name) VALUES (?)");
             $stmt->execute([$name]);
 
             return $stmt->rowCount() == 1;
