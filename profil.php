@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="assets/liste.css">
     <link rel="stylesheet" href="assets/profil.css">
+    <link rel="stylesheet" href="assets/navBarreCo.css">
+
 
 </head>
 

@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="assets/formulaire.css">
     <link rel="stylesheet" href="assets/formulaireCo.css">
     <link rel="stylesheet" href="assets/inscription.css">
+    <link rel="stylesheet" href="assets/navBarreCo.css">
+
 </head>
 
 
