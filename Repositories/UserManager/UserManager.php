@@ -1,11 +1,13 @@
 <?php
+
 namespace Repositories\UserManager;
 
-use Models\User;
 use Models\DbConnexion\DbConnexion;
+use Models\User\User;
 
 class UserManager
 {
+
     private $pdo;
 
     public function __construct(DbConnexion $dbConnexion)
@@ -13,31 +15,51 @@ class UserManager
         $this->pdo = $dbConnexion->getPDO();
     }
 
-    public function allUsers()
+    public function login(string $email, string $password)
     {
-        $users = [];
+        $hash = hash("whirlpool", $password);
+
 
         try {
-            $stmt = $this->pdo->query("SELECT * FROM user");
-            while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
-                $users[] = new User($row);
-            }
+            $stmt = $this->pdo->query("SELECT * FROM user WHERE email = '$email' AND password = '$hash' ");
         } catch (\PDOException $e) {
-            return $users;
+            var_dump($e);
         }
-        return $users;
+        while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+            $user = new User($row);
+        }
+
+        if (isset($user)) {
+            return $stmt->rowCount() == 1;
+        }
     }
 
-    public function insertUser(User $objet)
+    public function register(User $user)
     {
-        $name = $objet->getNameUser();
-        try {
-            $stmt = $this->pdo->prepare("INSERT INTO user (name) VALUES (?)");
-            $stmt->execute([$name]);
+        $password = hash("whirlpool", $user->getPassword());
 
+        try {
+            $stmt = $this->pdo->prepare("INSERT INTO user VALUES(NULL, ?, ?, ?, ?)");
+            $stmt->execute([$user->getFirstName(), $user->getLastName(), $user->getEmail(), $password]);
             return $stmt->rowCount() == 1;
         } catch (\PDOException $e) {
-            return false;
+            return $e;
         }
+    }
+
+    public function checkUserExist(User $user)
+    {
+        $email = $user->getEmail();
+
+        try {
+            $stmt = $this->pdo->query("SELECT * FROM user WHERE email = '$email' ");
+        } catch (\PDOException $e) {
+            return $e;
+        }
+        while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+            $user = new User($row);
+        }
+
+        return $stmt->rowCount() == 1;
     }
 }

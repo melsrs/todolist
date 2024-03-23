@@ -27,15 +27,15 @@ async function taskRegister(){
   let titre = document.querySelector("inputTitre").value
   let description =  document.querySelector("inputDescription").value
   let date =  document.querySelector("inputDate").value
-  let priorite =  document.querySelector("inputPriorite").value
-  let category =  document.querySelector("inputCategory").value
+  // let priorite =  document.querySelector("inputPriorite").value
+  // let category =  document.querySelector("inputCategory").value
 
   let task = {
     titre_task :inputTitre,
     description_task :inputDescription,
     date_task :inputDate,
-    priorite_task :inputPriorite,
-    category_task :inputCategory,
+    // priorite_task :inputPriorite,
+    // category_task :inputCategory,
   }
 
   let params = {
@@ -54,9 +54,4 @@ async function taskRegister(){
     }).catch((e) => {
       console.log(e)
     });
-}
-
-  
-
-
 }
